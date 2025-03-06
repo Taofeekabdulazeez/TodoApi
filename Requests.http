@@ -1,0 +1,28 @@
+### Add a new todo
+POST http://localhost:5194/api/todos
+Content-Type: application/json
+
+{
+  "id": 2,
+  "name": "Do second Assignment",
+  "isCompleted": false
+}
+
+### Get all todos
+GET http://localhost:5194/api/todos
+
+### Get a todo
+GET http://localhost:5194/api/todos/3
+
+### Update a todo
+PUT http://localhost:5194/api/todos/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Do Assignment",
+  "isCompleted": true
+}
+
+### Delete a todo
+DELETE http://localhost:5194/api/todos/1

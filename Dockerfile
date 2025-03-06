@@ -16,7 +16,7 @@ WORKDIR /app
 COPY --from=build /out ./
 
 # Expose the port the app runs on
-EXPOSE 8080
+EXPOSE 5194
 
 # Set the entry point for the application
 CMD ["dotnet", "TodoApi.dll"]

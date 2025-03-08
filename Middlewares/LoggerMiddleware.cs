@@ -40,8 +40,8 @@ public class LoggerMiddleware(RequestDelegate next)
         catch (JsonException e)
         {
             Console.WriteLine($"Error deserializing request body: {e.Message}");
-                return default;
+            return default;
         }
-        
+
     }
-  }
+}

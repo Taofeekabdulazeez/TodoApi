@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using TodoApi.Contexts;
+using TodoApi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var supabaseUrl = "https://csrhrzrwwtnsbdqcdjjv.supabase.co";
@@ -7,10 +7,8 @@ var supabase_anon_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYm
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddScoped<Supabase.Client>(_ => new Supabase.Client(supabaseUrl, supabase_anon_key));
-var connectionString = builder.Configuration.GetConnectionString("DbConnection");
+builder.Services.AddScoped<TodosService>();
 // builder.Services.AddOpenApi();
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<TodoContext>(options =>
-    options.UseNpgsql(connectionString));
 
 var app = builder.Build();
 

@@ -1,6 +1,6 @@
 namespace TodoApi.Dtos;
 
-public class UpdateTaskDto
+public class UpdateTodoDto
 {
     public string? Title { get; set; }
     public string? Priority { get; set; }

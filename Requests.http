@@ -1,5 +1,5 @@
 ### Add a new todo
-POST http://localhost:5194/api/tasks
+POST http://localhost:5194/api/todos
 Content-Type: application/json
 
 {
@@ -12,13 +12,13 @@ Content-Type: application/json
 }
 
 ### Get all todos
-GET http://localhost:5194/api/tasks
+GET http://localhost:5194/api/todos
 
 ### Get a todo
-GET http://localhost:5194/api/tasks/2
+GET http://localhost:5194/api/todos/2
 
 ### Update a todo
-PATCH  http://localhost:5194/api/tasks/2
+PATCH  http://localhost:5194/api/todos/3
 Content-Type: application/json
 
 {
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ### Delete a todo
-DELETE http://localhost:5194/api/tasks/2
+DELETE http://localhost:5194/api/todos/2

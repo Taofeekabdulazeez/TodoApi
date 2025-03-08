@@ -1,28 +1,29 @@
 ### Add a new todo
-POST http://localhost:5194/api/todos
+POST http://localhost:5194/api/tasks
 Content-Type: application/json
 
 {
-  "id": 2,
-  "name": "Do second Assignment",
-  "isCompleted": false
+  "title": "Do second Assignment",
+  "priority": "high",
+  "assignee": "Emmaneul Balogun",
+  "status": "completed",
+  "description": "todo blah blah blah",
+  "dueDate": "2025-03-09"
 }
 
 ### Get all todos
-GET http://localhost:5194/api/todos
+GET http://localhost:5194/api/tasks
 
 ### Get a todo
-GET http://localhost:5194/api/todos/3
+GET http://localhost:5194/api/tasks/2
 
 ### Update a todo
-PUT http://localhost:5194/api/todos/1
+PATCH  http://localhost:5194/api/tasks/2
 Content-Type: application/json
 
 {
-  "id": 1,
-  "name": "Do Assignment",
-  "isCompleted": true
+  "title": "Do Assignment",
 }
 
 ### Delete a todo
-DELETE http://localhost:5194/api/todos/1
+DELETE http://localhost:5194/api/tasks/2

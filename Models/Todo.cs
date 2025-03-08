@@ -1,3 +1,5 @@
+using Supabase.Postgrest.Models;
+
 namespace TodoApi.Models;
 
 public class Todo

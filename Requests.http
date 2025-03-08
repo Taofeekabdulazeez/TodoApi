@@ -23,6 +23,9 @@ Content-Type: application/json
 
 {
   "title": "Do Assignment",
+  "priority": "high",
+  "assignee": "Balogun Elias",
+  "description": "todo all",
 }
 
 ### Delete a todo

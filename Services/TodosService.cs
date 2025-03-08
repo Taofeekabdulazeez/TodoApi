@@ -45,10 +45,29 @@ public class TodosService(Supabase.Client supabase_client)
         return todo;
     }
 
-    public async Task<Todo> UpdateTodoById(long id, UpdateTodoDto UpdateTodoDto)
+    public async Task<Todo> UpdateTodoById(long id, UpdateTodoDto updateTodoDto)
     {
-        var response = await _client.From<Todo>().Where(t => t.Id == id)
-                .Set(t => t.Title, UpdateTodoDto.Title).Update();
+        var query = _client.From<Todo>().Where(t => t.Id == id);
+
+        if (!string.IsNullOrEmpty(updateTodoDto.Title))
+            query = query.Set(t => t.Title, updateTodoDto.Title);
+
+        if (!string.IsNullOrEmpty(updateTodoDto.Priority))
+            query = query.Set(t => t.Priority, updateTodoDto.Priority);
+
+        if (!string.IsNullOrEmpty(updateTodoDto.Assignee))
+            query = query.Set(t => t.Assignee, updateTodoDto.Assignee);
+
+        if (!string.IsNullOrEmpty(updateTodoDto.Status))
+            query = query.Set(t => t.Status, updateTodoDto.Status);
+
+        if (!string.IsNullOrEmpty(updateTodoDto.Description))
+            query = query.Set(t => t.Description, updateTodoDto.Description);
+
+        if (updateTodoDto.DueDate.HasValue)  // If DueDate is nullable
+            query = query.Set(t => t.DueDate, updateTodoDto.DueDate.Value);
+
+        var response = await query.Update();
 
         var updatedTodo = response.Models.FirstOrDefault();
 
